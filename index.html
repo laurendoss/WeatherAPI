@@ -52,16 +52,17 @@
     <div class="three wide tablet only three wide computer only column" id="sidebar">
       <h2>Search for a City:</h2>
       <div class="ui action input">
-        <input type="text" placeholder="">
-        <button class="ui icon button">
+        <input type="text" placeholder="" class="clientInput"> 
+        <button class="ui icon button searchButton">
           <i class="search icon"></i>
         </button>
       </div>
     </div>
     <div class="sixteen wide mobile thirteen wide tablet thirteen wide computer right floated column" id="content">
       <div class="ui hidden section divider"></div>
+      <h1 class="ui huge dividing header">Today's Weather:</h1>
       <div class="row">
-        <h1 class="cityName"></h1>
+        <h3 class="cityName"></h3>
         <div class="cityIcon"></div>
         <div class="cityHumidity"></div>
         <div class="cityTemperature"></div>
@@ -70,9 +71,9 @@
       </div>
       <div class="row">
         <h1 class="ui huge dividing header">5 Day Forecast:</h1>
-      </div>
+      
       <div class="ui grid system">
-        
+
         <!-- HTML for day 1 forecast -->
         <div class="three wide column">
           <div class="dayOneDate"></div>
@@ -113,6 +114,7 @@
           <div class="dayFiveHumidity"></div>
         </div>
 
+      </div>
       </div>
 
     </div>
