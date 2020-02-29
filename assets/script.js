@@ -1,24 +1,54 @@
-var APIkey = "1f527b67c4301844667af94e9756e077"; 
-var queryURL; 
-var city = "London"; 
+// var APIkey = "1f527b67c4301844667af94e9756e077"; 
+// var queryURL; 
+// var city = "London"; 
 
-function cityWeather (city) {
-// queryURL = "api.openweathermap.org/data/2.5/forecast?"+ "q=" + city + "&appid=" + APIkey; 
-queryURL =  'https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/forecast?appid='+ APIkey +'&q='+ city +'&count=10';
+// function cityWeather (city) {
+// // queryURL = "api.openweathermap.org/data/2.5/forecast?"+ "q=" + city + "&appid=" + APIkey; 
+// queryURL =  'https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/forecast?appid='+ APIkey +'&q='+ city +'&count=10';
 
-console.log(queryURL)
+// console.log(queryURL)
+// $.ajax({
+// url: queryURL, 
+// method: "GET" ,
+// headers: {
+// "Access-Control-Allow-Origin": "*"
+// } 
+// }).then(function(response) {
+// console.log(response); 
+// })
+// };
+
+// cityWeather(city); 
+function cityWeather () {
+var query_param = "seattle";
+var appID = "7e3c3133d43434fd9718ed5fb937a08d";
+var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + query_param + "&APPID=" + appID
 $.ajax({
-url: queryURL, 
-method: "GET" ,
-headers: {
-"Access-Control-Allow-Origin": "*"
-} 
-}).then(function(response) {
-console.log(response); 
+    url: queryURL,
+    method: "GET"
 })
-};
+.then(function(response) {
+console.log(response)
+//Transfer content to HTML
+var tempF = (response.main.temp - 273.15) * 1.80 + 32;
+var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
 
-cityWeather(city); 
+$(".cityName").text(response.name); 
+$(".cityIcon").append(img); 
+$(".cityHumidity").text("Humidity: " + response.main.humidity); 
+$(".cityTemperature").text("Temperature: " + tempF.toFixed(1) + "F"); 
+$(".cityWindSpeed").text("Wind Speed: " + response.wind.speed); 
+$(".cityUV").text()
+})
+}
+cityWeather()
+
+
+
+
+
+//Transfer content to HTML
+// $("#date1").text("Date: " + response.list[0].sys.dt_txt);
 
 
     // var appID = "1309b5e9e4f1e1f47098c6f9d717d4a2";
