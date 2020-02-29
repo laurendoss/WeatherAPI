@@ -4,7 +4,11 @@
 $(".searchButton").click(function(){
     
     var query_param = $(".clientInput").val(); 
+    localStorage.setItem("query param", JSON.stringify(query_param)); 
     
+    var displayedSearches = $(".lastSearchedItems")
+    var lastSearched = JSON.parse(localStorage.getItem("query_param")); 
+    displayedSearches.value = lastSearched; 
 
     cityWeather(query_param)
     cityForecast(query_param)
