@@ -1,24 +1,6 @@
-// var APIkey = "1f527b67c4301844667af94e9756e077"; 
-// var queryURL; 
-// var city = "London"; 
 
-// function cityWeather (city) {
-// // queryURL = "api.openweathermap.org/data/2.5/forecast?"+ "q=" + city + "&appid=" + APIkey; 
-// queryURL =  'https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/forecast?appid='+ APIkey +'&q='+ city +'&count=10';
 
-// console.log(queryURL)
-// $.ajax({
-// url: queryURL, 
-// method: "GET" ,
-// headers: {
-// "Access-Control-Allow-Origin": "*"
-// } 
-// }).then(function(response) {
-// console.log(response); 
-// })
-// };
-
-// cityWeather(city); 
+//Function to diplay current city weather
 function cityWeather () {
 var query_param = "seattle";
 var appID = "7e3c3133d43434fd9718ed5fb937a08d";
@@ -29,13 +11,13 @@ $.ajax({
 })
 .then(function(response) {
 
-//Transfer content to HTML
+//Transfer content to HTML for current day
 var tempF = (response.main.temp - 273.15) * 1.80 + 32;
 var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
 
 $(".cityName").text(response.name); 
 $(".cityIcon").append(img); 
-$(".cityHumidity").text("Humidity: " + response.main.humidity); 
+$(".cityHumidity").text("Humidity: " + response.main.humidity + "%"); 
 $(".cityTemperature").text("Temperature: " + tempF.toFixed(1) + "F"); 
 $(".cityWindSpeed").text("Wind Speed: " + response.wind.speed); 
 $(".cityUV").text()
@@ -65,7 +47,7 @@ function cityForecast () {
     response.list[1].dt_txt[3]+response.list[1].dt_txt[4]+response.list[1].dt_txt[5]+response.list[1].dt_txt[6]+
     response.list[1].dt_txt[7]+response.list[1].dt_txt[8]+response.list[1].dt_txt[9]); 
     $(".dayOneIcon").append(img1); 
-    $(".dayOneHumidity").text("Humidity: " + response.list[1].main.humidity); 
+    $(".dayOneHumidity").text("Humidity: " + response.list[1].main.humidity + "%"); 
     
     $(".dayOneTemp").text("Temperature: " + tempF1.toFixed(1) + "F"); 
 
@@ -78,7 +60,7 @@ function cityForecast () {
     response.list[9].dt_txt[3]+response.list[9].dt_txt[4]+response.list[9].dt_txt[5]+response.list[9].dt_txt[6]+
     response.list[9].dt_txt[7]+response.list[9].dt_txt[8]+response.list[9].dt_txt[9]); 
     $(".dayTwoIcon").append(img2); 
-    $(".dayTwoHumidity").text("Humidity: " + response.list[9].main.humidity); 
+    $(".dayTwoHumidity").text("Humidity: " + response.list[9].main.humidity + "%"); 
     
     $(".dayTwoTemp").text("Temperature: " + tempF2.toFixed(1) + "F"); 
 
@@ -90,7 +72,7 @@ function cityForecast () {
     response.list[17].dt_txt[3]+response.list[17].dt_txt[4]+response.list[17].dt_txt[5]+response.list[17].dt_txt[6]+
     response.list[17].dt_txt[7]+response.list[17].dt_txt[8]+response.list[17].dt_txt[9]); 
     $(".dayThreeIcon").append(img3); 
-    $(".dayThreeHumidity").text("Humidity: " + response.list[17].main.humidity); 
+    $(".dayThreeHumidity").text("Humidity: " + response.list[17].main.humidity + "%"); 
     
     $(".dayThreeTemp").text("Temperature: " + tempF3.toFixed(1) + "F"); 
 
@@ -102,7 +84,7 @@ function cityForecast () {
     response.list[25].dt_txt[3]+response.list[25].dt_txt[4]+response.list[25].dt_txt[5]+response.list[25].dt_txt[6]+
     response.list[25].dt_txt[7]+response.list[25].dt_txt[8]+response.list[25].dt_txt[9]); 
     $(".dayFourIcon").append(img4); 
-    $(".dayFourHumidity").text("Humidity: " + response.list[25].main.humidity); 
+    $(".dayFourHumidity").text("Humidity: " + response.list[25].main.humidity + "%"); 
     
     $(".dayFourTemp").text("Temperature: " + tempF4.toFixed(1) + "F"); 
 
@@ -114,7 +96,7 @@ function cityForecast () {
     response.list[33].dt_txt[3]+response.list[33].dt_txt[4]+response.list[33].dt_txt[5]+response.list[33].dt_txt[6]+
     response.list[33].dt_txt[7]+response.list[33].dt_txt[8]+response.list[33].dt_txt[9]); 
     $(".dayFiveIcon").append(img5); 
-    $(".dayFiveHumidity").text("Humidity: " + response.list[33].main.humidity); 
+    $(".dayFiveHumidity").text("Humidity: " + response.list[33].main.humidity + "%"); 
     
     $(".dayFiveTemp").text("Temperature: " + tempF5.toFixed(1) + "F"); 
     
