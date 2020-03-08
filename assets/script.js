@@ -17,7 +17,7 @@ $(".searchButton").click(function(){
 
 function cityWeather(city) {
         var appID = "7e3c3133d43434fd9718ed5fb937a08d";
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + appID
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + appID
         $.ajax({
             url: queryURL,
             method: "GET"
